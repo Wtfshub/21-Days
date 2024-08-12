@@ -6,6 +6,7 @@ function startSurprise() {
     // Display and animate the heart
     var heart = document.getElementById('heart');
     heart.style.display = 'block';
+    heart.classList.add('shown'); // Add class to trigger love message
 
     // Start falling petals
     setInterval(createPetal, 300);
