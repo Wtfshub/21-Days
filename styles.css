@@ -1,0 +1,159 @@
+body {
+    background-color: #f7f4f9;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    z-index: 10;
+    position: relative;
+}
+
+h1 {
+    color: #ff6f61;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.message {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #e65b50;
+}
+
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: #ff6f61;
+    position: relative;
+    margin: 40px auto;
+    transform: rotate(-45deg);
+    display: none;
+    animation: heartbeat 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background-color: #ff6f61;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 50px;
+}
+
+/* ECG Line inside the heart */
+.ecg-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 2px;
+    background: white;
+    transform: translate(-50%, -50%);
+    animation: ecg-animation 2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 28%, 70%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    14% {
+        transform: scale(1.3) rotate(-45deg);
+    }
+    42% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+    84% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
+
+@keyframes ecg-animation {
+    0% {
+        clip-path: polygon(0% 50%, 10% 50%, 20% 0%, 30% 100%, 40% 50%, 100% 50%);
+    }
+    50% {
+        clip-path: polygon(0% 50%, 10% 50%, 20% 0%, 30% 100%, 40% 50%, 50% 50%, 60% 0%, 70% 100%, 80% 50%, 100% 50%);
+    }
+    100% {
+        clip-path: polygon(0% 50%, 10% 50%, 20% 0%, 30% 100%, 40% 50%, 100% 50%);
+    }
+}
+
+
+/* Petal Styles */
+.petal {
+    width: 15px;
+    height: 15px;
+    background-color: pink;
+    position: absolute;
+    border-radius: 50%;
+    animation: fall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+@keyframes sway {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes sway-left {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
